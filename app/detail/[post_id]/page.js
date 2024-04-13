@@ -1,8 +1,15 @@
 import { connectDB } from "@/util/database"
 import { ObjectId } from "mongodb";
 import Comment from "../../component/Comment";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 export default async function Detail(props){
+
+    let session = await getServerSession(authOptions);
+    if (!session){
+        return <div>로그인이 필요합니다</div>
+    }
 
     const db = (await connectDB).db("community");
     let post = await db.collection("post").findOne({ _id : new ObjectId(props.params.post_id)})
