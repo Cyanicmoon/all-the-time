@@ -10,7 +10,7 @@ export const authOptions = {
             clientSecret: process.env.GOOGLE_CLIENT_SECRET
         })
     ],
-    secret : "ILoveDimigo12341",
+    secret : process.env.GOOGLE_SECRET,
     adapter : MongoDBAdapter(connectDB)
 };
 export default NextAuth(authOptions); 
