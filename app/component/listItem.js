@@ -21,7 +21,7 @@ export default function ListItem(props){
                             <Link href={"/detail/"+props.post[i]._id} prefetch={false}>
                                 <h4>{props.post[i].title}</h4>
                             </Link>
-                            <Link href={"/edit/"+props.post[i]._id} prefetch={false}>✏️ 수정</Link>
+                            {/* <Link href={"/edit/"+props.post[i]._id} prefetch={false}>✏️ 수정</Link>
                             <br></br>
                             <span onClick={(e)=>{
                                 fetch("/api/post/delete", {
@@ -53,7 +53,7 @@ export default function ListItem(props){
 
 
                                 // fetch("/api/abc/lati")
-                            }}>🗑️ 삭제</span>
+                            }}>🗑️ 삭제</span> */}
                             <p>{props.post[i].date}</p>
                         </div>
                     )
