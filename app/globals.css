@@ -359,3 +359,15 @@ a{
   font-size: 14px;
   color: rgb(58, 58, 58);
 }
+
+
+
+
+.test-img{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
