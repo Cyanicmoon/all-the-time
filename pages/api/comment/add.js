@@ -4,6 +4,7 @@ import { authOptions } from "../auth/[...nextauth]";
 
 export default async function handler(request, response){
     let session = await getServerSession(request, response, authOptions);
+    request.body = JSON.parse(request.body);
 
     if (request.method != "POST"){
         return response.status(500).json("INVALID ACCESS");
@@ -14,13 +15,11 @@ export default async function handler(request, response){
     }
 
     if (request.body.comment == ""){
-        return response.status(500).json("내용을 입력해주세요");
+        return response.status(500).json("error");
     }
 
     try {
         const db = (await connectDB).db("community");
-        
-        request.body = JSON.parse(request.body);
 
         let today = new Date(); 
         let format = today.getFullYear() + '년 ' 
@@ -30,11 +29,16 @@ export default async function handler(request, response){
         + ('0'+today.getMinutes()).slice(-2) + ':'
         + ('0'+today.getSeconds()).slice(-2) + '';
 
+        const db2 = (await connectDB).db("account");
+        let t = await db2.collection("users").findOne({ email : session.user.email });
+
         let temp = {
             content : request.body.comment,
             parent : request.body._id,
             author : session.user.email,
-            date : format
+            date : format,
+            user_name : t.name,
+            user_img : t.image
         }
 
         let comment = await db.collection("comment").insertOne(temp);
@@ -42,6 +46,6 @@ export default async function handler(request, response){
         return response.status(200).json(comment);
     }
     catch(e){
-        return response.status(500).json("BOOM");
+        return response.status(500).json(e.message);
     }
 }

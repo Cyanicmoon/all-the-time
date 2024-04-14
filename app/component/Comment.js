@@ -7,6 +7,8 @@ export default function Comment({_id}){
 
     let [comment, setComment] = useState("");
     let [data, setData] = useState([]);
+    // let [userName, setUserName] = useState([]);
+    // let [userImg, setUserImg] = useState([])
 
     useEffect(()=>{
         fetch("/api/comment/list", {
@@ -16,8 +18,26 @@ export default function Comment({_id}){
         .then(r=>r.json())
         .then((result)=>{
             setData(result);
+            console.log(result);
+        })
+        .catch((e)=>{
+
         })
     }, []) // [] : 1회만 실행
+
+    // await useEffect(()=>{
+    //     fetch("/api/comment/getUser", {
+    //         method : "POST",
+    //         body : data.length
+    //     })
+    //     .then(r=>r.json())
+    //     .then((result)=>{
+    //         console.log(result);
+    //     })
+    //     .catch((e)=>{
+            
+    //     })
+    // }, [])
 
     return(
         <div className="post-container-comment">
@@ -26,10 +46,19 @@ export default function Comment({_id}){
                 data.length > 0 ?
                 data.map((a, i)=>{
                     return(
-                        <pre key={i}>{a.content}</pre>
+                        <div className="comment-container">
+                            <div className="comment-container-header">                               
+                                <img src={ a.user_img }></img>
+                                <h2>{ a.user_name }</h2>
+                            </div>
+                            <div className="comment-container-content">
+                                <pre>{ a.content }</pre>
+                                <p>{ a.date }</p>
+                            </div>
+                        </div>
                     )
                 })
-                : null //<Loading></Loading>
+                : null
             }
             
             <div className="post-container-comment-input">
@@ -47,7 +76,20 @@ export default function Comment({_id}){
                     })
                     .then(r=>r.json())
                     .then((result)=>{
-                        setData(result);
+                        console.log(result)
+                        if (result != "error"){
+                            setData(result);
+                            alert("댓글이 작성되었습니다");
+                        }
+                        else{
+                            alert("내용을 입력해주세요");
+                        }
+
+                        let temp = document.querySelector(".post-container-comment-input textarea");
+                        temp.value = "";
+                    })
+                    .catch((e)=>{
+
                     })
             }}>✏️ 전송</button>
             </div>

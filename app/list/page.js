@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 export default async function List(){
 
     const db1 = (await connectDB).db("community");
-    let post = await db1.collection("post").find().toArray();
+    let post = await db1.collection("post").find().sort({"date" : -1}).toArray();
     for (let i=0; i<post.length; i++){
         post[i]._id = post[i]._id.toString();
     }
