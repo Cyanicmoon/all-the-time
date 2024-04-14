@@ -62,7 +62,7 @@ body{
 }
 .list-item-profile p{
   font-weight: 300;
-  color: rgb(58, 58, 58);
+  color: black;
   padding: 0;
   padding-top: 3px;
   align-items: center;
@@ -328,7 +328,7 @@ a{
 }
 .post-container-content h1{
   font-size: 28px;
-  font-weight: bold;
+  font-weight: 800;
 }
 .post-container-content pre{
   font-size: 18px;
