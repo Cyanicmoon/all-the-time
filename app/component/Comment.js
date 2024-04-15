@@ -7,8 +7,6 @@ export default function Comment({_id}){
 
     let [comment, setComment] = useState("");
     let [data, setData] = useState([]);
-    // let [userName, setUserName] = useState([]);
-    // let [userImg, setUserImg] = useState([])
 
     useEffect(()=>{
         fetch("/api/comment/list", {
@@ -23,20 +21,6 @@ export default function Comment({_id}){
 
         })
     }, []) // [] : 1회만 실행
-
-    // await useEffect(()=>{
-    //     fetch("/api/comment/getUser", {
-    //         method : "POST",
-    //         body : data.length
-    //     })
-    //     .then(r=>r.json())
-    //     .then((result)=>{
-    //         console.log(result);
-    //     })
-    //     .catch((e)=>{
-            
-    //     })
-    // }, [])
 
     return(
         <div className="post-container-comment">
@@ -64,8 +48,10 @@ export default function Comment({_id}){
                 <textarea onChange={(e)=>{
                     setComment(e.target.value);
                     e.target.style.height = e.target.scrollHeight + "px";
-                }} rows={1}></textarea>
+                }} rows={1} placeholder="댓글을 입력하세요"></textarea>
                 <button onClick={()=>{
+                    let rr = confirm("댓글을 입력하시겠습니까?");
+                    if (!rr) return;
                     fetch("/api/comment/add", {
                         method : "POST",
                         body: JSON.stringify({

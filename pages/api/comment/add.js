@@ -21,13 +21,18 @@ export default async function handler(request, response){
     try {
         const db = (await connectDB).db("community");
 
-        let today = new Date(); 
-        let format = today.getFullYear() + '년 ' 
-        + ('0'+(today.getMonth()+1)).slice(-2) + '월 '
-        + ('0'+today.getDate()).slice(-2) + '일 - ' 
-        + ('0'+today.getHours()).slice(-2) + ':' 
-        + ('0'+today.getMinutes()).slice(-2) + ':'
-        + ('0'+today.getSeconds()).slice(-2) + '';
+        const now = new Date();
+        const utc = now.getTime() + (now.getTimezoneOffset() * 60 * 1000);
+        const koreaTimeDiff = 9 * 60 * 60 * 1000;
+        const korNow = new Date(utc+koreaTimeDiff);
+
+        let format = korNow.getFullYear() + '년 ' 
+        + ('0'+(korNow.getMonth()+1)).slice(-2) + '월 '
+        + ('0'+korNow.getDate()).slice(-2) + '일 - ' 
+        + ('0'+korNow.getHours()).slice(-2) + ':' 
+        + ('0'+korNow.getMinutes()).slice(-2) + ':'
+        + ('0'+korNow.getSeconds()).slice(-2) + '';
+
 
         const db2 = (await connectDB).db("account");
         let t = await db2.collection("users").findOne({ email : session.user.email });
@@ -35,7 +40,6 @@ export default async function handler(request, response){
         let temp = {
             content : request.body.comment,
             parent : request.body._id,
-            author : session.user.email,
             date : format,
             user_name : t.name,
             user_img : t.image

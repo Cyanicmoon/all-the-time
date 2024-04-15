@@ -3,6 +3,7 @@ import { ObjectId } from "mongodb";
 import Comment from "../../component/Comment";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import Joayo from "@/app/component/Joayo";
 
 export default async function Detail(props){
 
@@ -16,10 +17,20 @@ export default async function Detail(props){
 
     const db2 = (await connectDB).db("account");
 
-    let temp = await db2.collection("users").findOne({ email : post.author });
-    let user_name = temp.name;
-    let user_img = temp.image;
+    let temp, user_name, user_img;
 
+    try {
+        temp = await db2.collection("users").findOne({ email : post.author });
+        user_name = temp.name;
+        user_img = temp.image;
+        console.log(user_name)
+    }
+    catch(e){
+        return(
+            <div style={{display: "flex", justifyContent: "center", alignItems:"center", height:"100%"}}><h1>여기 페이지 없어요 :D</h1></div>
+        )
+    }
+    
     return(
         <div>
             <div className="post-container">
@@ -30,6 +41,7 @@ export default async function Detail(props){
                             <h2>{ user_name }</h2>
                             <p>{ post.date }</p>
                         </div>
+                        <Joayo _id={post._id.toString} good={post.good}></Joayo>
                         <button>👍 공감 { post.good }</button>
                     </div>
 

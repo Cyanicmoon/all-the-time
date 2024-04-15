@@ -1,6 +1,8 @@
 import { connectDB } from "@/util/database";
 import Link from "next/link";
 import ListItem from "../component/listItem";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 export const dynamic = 'force-dynamic';
 
@@ -21,6 +23,8 @@ export default async function List(){
         user_img.push(temp.image);
     }
 
+    let session = await getServerSession(authOptions);
+
     return(
         <div>
             <div className="list-bg">
@@ -33,7 +37,7 @@ export default async function List(){
                         <Link href="/write">글쓰기</Link> 
                     </div>
                 </div>
-                <ListItem post={post} user_name={user_name} user_img={user_img}></ListItem>
+                <ListItem post={post} user_name={user_name} user_img={user_img} session={session}></ListItem>
             </div>
         </div>
     )
