@@ -55,9 +55,6 @@ export default function ListItem(props){
                                         .catch((error)=>{
                                             //인터넷 문제로 실패시 실행
                                         })
-
-
-                                        // fetch("/api/abc/lati")
                                     }}>🗑️ 삭제</span>
                                 </div>
                                 : null

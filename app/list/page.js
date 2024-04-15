@@ -34,7 +34,7 @@ export default async function List(){
                             <input type="text" placeholder="글 제목을 입력하세요"></input>
                             <button>🔍</button>
                         </div>
-                        <Link href="/write">글쓰기</Link> 
+                        <Link href="/write">✉️ 글쓰기</Link> 
                     </div>
                 </div>
                 <ListItem post={post} user_name={user_name} user_img={user_img} session={session}></ListItem>

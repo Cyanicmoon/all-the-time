@@ -99,13 +99,12 @@ pre{
   font-size: 15px;
 }
 .list-enter a{
-  font-size: 15px;
-  font-weight: 600;
-  padding: 10px;
-  border: 1px solid rgb(226, 226, 226);
-  border-radius: 8px;
   background-color: white;
-  transition: all 0.5s;
+  border: 1px solid rgb(226, 226, 226);
+  transition: all 0.3s;
+  padding : 10px 13px;;
+  border-radius: 5px;
+  font-size: 14px;
 }
 .list-enter a:hover{
   background-color: rgb(230, 230, 230);
@@ -268,7 +267,7 @@ a{
 
 .list-item{
   opacity: 1;
-  transition: all 0.5s;
+  transition: all 0.3s;
 }
 .list-item span{
   cursor: pointer;
