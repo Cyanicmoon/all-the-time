@@ -13,6 +13,8 @@ body{
 }
 pre{
   font-family: 'Pretendard-Regular';
+  overflow: auto;
+  white-space: pre-wrap;
 }
 
 .loading-img{
