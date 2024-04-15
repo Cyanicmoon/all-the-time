@@ -11,7 +11,7 @@ export default async function Home() {
   return (
     <div>
       {
-        session ?  <img src="/elmo_yes.gif" className="test-img"></img> : <img src="/elmo_no.gif" className="test-img"></img>
+        session ? <img src="/elmo_yes.gif" className="test-img"></img> : <img src="/elmo_no.gif" className="test-img"></img>
       }
     </div>
   );
