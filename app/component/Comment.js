@@ -18,7 +18,6 @@ export default function Comment({_id}){
         .then(r=>r.json())
         .then((result)=>{
             setData(result);
-            console.log(result);
         })
         .catch((e)=>{
 
@@ -46,7 +45,7 @@ export default function Comment({_id}){
                 data.length > 0 ?
                 data.map((a, i)=>{
                     return(
-                        <div className="comment-container">
+                        <div className="comment-container" key={i}>
                             <div className="comment-container-header">                               
                                 <img src={ a.user_img }></img>
                                 <h2>{ a.user_name }</h2>
