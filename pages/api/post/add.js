@@ -27,7 +27,7 @@ export default async function handler(request, response){
         let format = today.getFullYear() + '년 ' 
         + ('0'+(today.getMonth()+1)).slice(-2) + '월 '
         + ('0'+today.getDate()).slice(-2) + '일 - ' 
-        + ('0'+(today.getHours()+9)).slice(-2) + ':' 
+        + ('0'+today.getHours()).slice(-2) + ':' 
         + ('0'+today.getMinutes()).slice(-2) + ':'
         + ('0'+today.getSeconds()).slice(-2) + '';
 
