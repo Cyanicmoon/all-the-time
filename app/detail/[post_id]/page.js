@@ -23,7 +23,6 @@ export default async function Detail(props){
         temp = await db2.collection("users").findOne({ email : post.author });
         user_name = temp.name;
         user_img = temp.image;
-        console.log(user_name)
     }
     catch(e){
         return(
@@ -41,7 +40,7 @@ export default async function Detail(props){
                             <h2>{ user_name }</h2>
                             <p>{ post.date }</p>
                         </div>
-                        <Joayo _id={post._id.toString} good={post.good}></Joayo>
+                        {/* <Joayo _id={post._id.toString} good={post.good}></Joayo> */}
                         <button>👍 공감 { post.good }</button>
                     </div>
 

@@ -41,6 +41,6 @@ export default async function handler(request, response){
         return response.status(200).redirect("/list");
     }
     catch(e){
-        return response.status(500).json("INVALID ACCESS")
+        return response.status(500).json("BOOM")
     }
 }
