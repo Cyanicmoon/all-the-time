@@ -3,6 +3,7 @@ import Link from "next/link";
 import ListItem from "../component/listItem";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import SplitNumber from "../component/SplitNumber";
 
 export const dynamic = 'force-dynamic';
 
@@ -38,6 +39,7 @@ export default async function List(){
                     </div>
                 </div>
                 <ListItem post={post} user_name={user_name} user_img={user_img} session={session}></ListItem>
+                <SplitNumber></SplitNumber>
             </div>
         </div>
     )

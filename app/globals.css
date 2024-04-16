@@ -352,6 +352,7 @@ a{
   height: 42px;
   border: 0;
   border-bottom: 1px solid black;
+  border-radius: 0;
   font-size: 18px;
   overflow: hidden;
 }
@@ -425,6 +426,7 @@ a{
   width: 100%;
   border: 0;
   border-bottom: 1.5px solid black;
+  border-radius: 0;
   font-size: 20px;
   margin-bottom: 20px;
 }
@@ -446,4 +448,38 @@ a{
 }
 .add-container-content button:hover{
   background-color: rgb(230, 230, 230);
+}
+
+.split-container{
+  width:100%;
+  /* background-color: aqua; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+.split-numbers{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.split-container button{
+  background-color: rgb(249, 250, 255);
+  font-size: 15px;
+  margin: 20px 0px;
+  padding: 0;
+  color: rgb(73, 73, 73);
+}
+.split-numbers button{
+  margin: 20px 20px;
+}
+
+.error-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
