@@ -20,7 +20,7 @@ export default function Comment({_id}){
         .catch((e)=>{
 
         })
-    }, []) // [] : 1회만 실행
+    }, [])
 
     return(
         <div className="post-container-comment">

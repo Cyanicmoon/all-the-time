@@ -1,10 +1,13 @@
 export const dynamic = 'force-dynamic';
 
+import ScheduleInfo from "@/app/component/ScheduleInfo";
+import Loading from "../loading";
+
 export default async function Schedule(){
 
     return(
         <div>
-            시간표 페이지 (미구현)
+            <ScheduleInfo></ScheduleInfo>
         </div>
     )
 }
