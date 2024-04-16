@@ -501,7 +501,7 @@ a{
   width: 45%;
   min-width: 600px;
   background-color: white;
-  padding: 10px 50px 50px 50px;
+  padding: 10px 50px 10px 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -559,5 +559,9 @@ a{
 .schedule-find button:hover{
   background-color: rgb(230, 230, 230);
 }
-
+.schedule-from{
+  font-size: 10px;
+  color: gray;
+  margin-top: 20px;
+}
 

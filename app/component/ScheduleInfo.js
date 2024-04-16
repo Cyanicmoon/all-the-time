@@ -12,7 +12,7 @@ export default function ScheduleInfo(){
 
     useEffect(()=>{
         setCheck(true);
-        fetch("/api/schedule/get", {
+        fetch("/api/data/schedule", {
             method : "POST",
             body : JSON.stringify({
                 grade : grade,
@@ -51,7 +51,7 @@ export default function ScheduleInfo(){
                         if (grade == "" || clas == "") return
 
                         setCheck(true);
-                        fetch("/api/schedule/get", {
+                        fetch("/api/data/schedule", {
                             method : "POST",
                             body : JSON.stringify({
                                 grade : grade,
@@ -151,6 +151,7 @@ export default function ScheduleInfo(){
                         </tr>
                     </tbody>
                 </table>
+                <pre className="schedule-from">출처 : https://github.com/leegeunhyeok/comcigan-parser</pre>
             </div>
         </div>:<Loading></Loading>
         }
