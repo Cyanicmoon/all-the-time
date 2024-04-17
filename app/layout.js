@@ -44,9 +44,6 @@ export default async function RootLayout({ children }) {
               {
                 await getServerSession(authOptions) == null ? <LoginBtn></LoginBtn>: <LogoutBtn></LogoutBtn>
               }
-              {
-                await getServerSession(authOptions) == null ? <button className="navbar-user-signup">회원가입</button> : null
-              }
 
               <div className="navbar-profile">
                 {
