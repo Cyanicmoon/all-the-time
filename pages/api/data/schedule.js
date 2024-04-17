@@ -2,12 +2,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '../auth/[...nextauth]';
 
 export default async function handler(request, response){
-    let session = await getServerSession(request, response, authOptions);
-
-    if (!session){
-        return response.status(500).json("로그인 하고 와라");
-    }
-
+    
     try{
         request.body = JSON.parse(request.body);
 
