@@ -15,7 +15,7 @@ export default function ListItem(props){
                         <div className="list-item" key={i}>
                             <div className="list-item-profile">
                                 {
-                                    props.post[i].noname ? <img src="/logo-rect.png"></img> : <img src={props.user_img[i]}></img>
+                                    props.post[i].noname ? <img src="/dimigo.png"></img> : <img src={props.user_img[i]}></img>
                                 }
                                 {
                                     props.post[i].noname ? <p>익명</p> : <p>{props.user_name[i]}</p>
