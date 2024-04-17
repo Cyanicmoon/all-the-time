@@ -14,8 +14,12 @@ export default function ListItem(props){
                     return (
                         <div className="list-item" key={i}>
                             <div className="list-item-profile">
-                                <img src={props.user_img[i]}></img>
-                                <p>{props.user_name[i]}</p>
+                                {
+                                    props.post[i].noname ? <img src="/logo-rect.png"></img> : <img src={props.user_img[i]}></img>
+                                }
+                                {
+                                    props.post[i].noname ? <p>익명</p> : <p>{props.user_name[i]}</p>
+                                }
                             </div>
 
                             <Link href={"/detail/"+props.post[i]._id} prefetch={false}>

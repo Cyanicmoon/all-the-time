@@ -20,6 +20,17 @@ export default async function handler(request, response){
     }
 
     try{
+        let check = true;
+        try {
+            if (request.body.isChecked == "on"){
+                check = false;
+                delete request.body.isChecked;
+                request.body.noname = true;
+            }
+        }
+        catch(e){}
+        
+        if (check) request.body.noname = false;
         
         const db = (await connectDB).db("community");
 

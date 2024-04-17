@@ -21,8 +21,14 @@ export default async function Detail(props){
 
     try {
         temp = await db2.collection("users").findOne({ email : post.author });
-        user_name = temp.name;
-        user_img = temp.image;
+        if (post.noname){
+            user_name = "익명"
+            user_img = "/logo-rect.png";
+        }
+        else{
+            user_name = temp.name;
+            user_img = temp.image;
+        }
     }
     catch(e){
         return(

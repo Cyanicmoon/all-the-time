@@ -20,7 +20,12 @@ export default async function Write(){
                         <form action="/api/post/add" method="POST">
                             <input type="text" name="title" placeholder="제목을 입력하세요" ></input>
                             <textarea name="content" placeholder="내용을 입력하세요"></textarea>
-                            <button type="submit">✉️ 발행</button>
+                            <div className="add-container-flex">
+                                <pre>익명 기능을 사용할 때, 위험한 내용이나 남을 비방하는 내용의 글은 작성하지 말아주세요.</pre>
+                                <p>익명</p>
+                                <input name="isChecked" type="checkbox"></input>
+                                <button type="submit">✉️ 발행</button>
+                            </div>
                         </form>
                     </div>
                 </div>
