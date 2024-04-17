@@ -14,10 +14,5 @@ export const authOptions = {
     // debug: true,
     secret : process.env.GOOGLE_SECRET,
     adapter : MongoDBAdapter(connectDB),
-    // cookies : {
-    //     domain: "ilovedimigo.kro.kr",
-    //     sameSite: 'None',
-    //     secure: true
-    // }
 };
 export default NextAuth(authOptions); 
