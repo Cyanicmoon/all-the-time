@@ -38,12 +38,12 @@ export default function ScheduleInfo(){
             <div className="schedule-info">
                 <div className="schedule-find">
                     <input type="number" min={1} max={3} value={grade} onChange={(e)=>{
-                        if (e.target.value > 3 || e.target.value < 0 || e.target.value % 1 != 0) return;
+                        if (e.target.value > 3 || e.target.value <= 0 || e.target.value % 1 != 0) return;
                         setGrade(e.target.value);
                     }}></input>
                     <p>학년</p>
                     <input type="number" min={1} max={6} value={clas} onChange={(e)=>{
-                        if (e.target.value > 6 || e.target.value < 0 || e.target.value % 1 != 0) return;
+                        if (e.target.value > 6 || e.target.value <= 0 || e.target.value % 1 != 0) return;
                         setClas(e.target.value);
                     }}></input>
                     <p>반</p>
