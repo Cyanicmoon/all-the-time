@@ -16,7 +16,7 @@ export default async function Meal(){
     + ('0'+(korNow.getMonth()+1)).slice(-2) + '-'
     + ('0'+korNow.getDate()).slice(-2);
 
-    await fetch("https://api.xn--299a1v27nvthhjj.com/?date="+format)
+    await fetch("https://api.xn--299a1v27nvthhjj.com/meal/"+format)
     .then(r=>r.json())
     .then((result)=>{
         meal[0] = result.breakfast.split("/");
@@ -29,6 +29,7 @@ export default async function Meal(){
         )
     })
     
+    console.log(meal);
 
     return(
         <MealInfo meal={meal}></MealInfo>
