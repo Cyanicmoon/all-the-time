@@ -39,7 +39,7 @@ export default async function List(){
                     </div>
                 </div>
                 <ListItem post={post} user_name={user_name} user_img={user_img} session={session}></ListItem>
-                <SplitNumber></SplitNumber>
+                {/* <SplitNumber></SplitNumber> */}
             </div>
         </div>
     )

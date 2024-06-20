@@ -27,9 +27,7 @@ export default async function Meal(){
         return(
             <Error></Error>
         )
-    })
-    
-    console.log(meal);
+    });
 
     return(
         <MealInfo meal={meal}></MealInfo>
