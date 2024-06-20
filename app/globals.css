@@ -92,7 +92,8 @@ pre{
 .list-temp{
   width: 50%;
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
+  justify-content: flex-end;
   align-items: center;
   border-bottom: 1.5px solid rgb(226, 226, 226);
   padding-bottom: 7px;

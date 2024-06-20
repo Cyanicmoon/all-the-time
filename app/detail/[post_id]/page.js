@@ -47,7 +47,7 @@ export default async function Detail(props){
                             <p>{ post.date }</p>
                         </div>
                         {/* <Joayo _id={post._id.toString} good={post.good}></Joayo> */}
-                        <button>👍 공감 { post.good }</button>
+                        {/* <button>👍 공감 { post.good }</button> */}
                     </div>
 
                     <div className="post-container-content">

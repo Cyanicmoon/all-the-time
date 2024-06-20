@@ -31,10 +31,10 @@ export default async function List(){
             <div className="list-bg">
                 <div className="list-enter">
                     <div className="list-temp">
-                        <div className="list-enter-box">
+                        {/* <div className="list-enter-box">
                             <input type="text" placeholder="글 제목을 입력하세요"></input>
                             <button>🔍</button>
-                        </div>
+                        </div> */}
                         <Link href="/write">✉️ 글쓰기</Link> 
                     </div>
                 </div>
