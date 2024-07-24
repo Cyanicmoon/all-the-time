@@ -29,6 +29,7 @@ export default async function Meal(){
         )
     });
 
+    
     return(
         <MealInfo meal={meal}></MealInfo>
     )
